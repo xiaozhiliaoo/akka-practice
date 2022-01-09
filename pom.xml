@@ -11,6 +11,7 @@
     <modules>
         <module>db-client</module>
         <module>common</module>
+        <module>akka-in-action-java</module>
     </modules>
 
     <properties>
@@ -36,6 +37,7 @@
              <scope>test</scope>
          </dependency>-->
 
+
         <dependency>
             <groupId>org.lili.akka</groupId>
             <artifactId>common</artifactId>
@@ -48,6 +50,7 @@
             <artifactId>akka-http_2.13</artifactId>
             <version>10.2.4</version>
         </dependency>
+
 
         <dependency>
             <groupId>com.typesafe.akka</groupId>
@@ -98,6 +101,23 @@
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
+
+
+
+        <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-cluster -->
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-cluster_2.13</artifactId>
+            <version>${akka.untyped.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-distributed-data_2.13</artifactId>
+            <version>${akka.untyped.version}</version>
+        </dependency>
+
 
 
     </dependencies>

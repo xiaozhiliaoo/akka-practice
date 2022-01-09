@@ -41,5 +41,4 @@ public class AkkademyDb extends AbstractActor {
         ActorSystem system = ActorSystem.create("akkademy");
         ActorRef actor = system.actorOf(Props.create(AkkademyDb.class), "akkademy-db");
     }
-
 }
