@@ -8,6 +8,8 @@
 
 ## 国外
 
+《Akka入门与实践》
+
 《Akka实战》 Raymond Roestenburg 2018-12
 
 《Akka应用模式 分布式应用程序设计实践指南》 虞航仲译 2017-10
