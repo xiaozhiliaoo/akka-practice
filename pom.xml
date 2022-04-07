@@ -11,107 +11,129 @@
     <modules>
         <module>akka-in-action-java</module>
         <module>learning-akka</module>
+        <module>akka-classic</module>
     </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <akka.untyped.version>2.5.32</akka.untyped.version>
-        <akka.typed.version>2.6.14</akka.typed.version>
+        <scala.version>2.13</scala.version>
+        <akka.version>2.6.14</akka.version>
     </properties>
 
-    <dependencies>
-        <!-- typed -->
-        <!-- <dependency>
-             <groupId>com.typesafe.akka</groupId>
-             <artifactId>akka-actor-typed_2.13</artifactId>
-             <version>${akka.typed.version}</version>
-         </dependency>
+    <dependencyManagement>
+        <dependencies>
+            <!-- typed -->
+            <!-- <dependency>
+                 <groupId>com.typesafe.akka</groupId>
+                 <artifactId>akka-actor-typed_${scala.caversion}</artifactId>
+                 <version>${akka.typed.version}</version>
+             </dependency>
 
 
-         <dependency>
-             <groupId>com.typesafe.akka</groupId>
-             <artifactId>akka-actor-testkit-typed_2.13</artifactId>
-             <version>${akka.typed.version}</version>
-             <scope>test</scope>
-         </dependency>-->
+             <dependency>
+                 <groupId>com.typesafe.akka</groupId>
+                 <artifactId>akka-actor-testkit-typed_${scala.caversion}</artifactId>
+                 <version>${akka.typed.version}</version>
+                 <scope>test</scope>
+             </dependency>-->
 
 
-        <!--classic -->
-        <dependency>
-            <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-http_2.13</artifactId>
-            <version>10.2.4</version>
-        </dependency>
+            <!--classic -->
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-http_${scala.version}</artifactId>
+                <version>10.2.4</version>
+            </dependency>
 
 
-        <dependency>
-            <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-actor_2.13</artifactId>
-            <version>${akka.untyped.version}</version>
-        </dependency>
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-actor_${scala.version}</artifactId>
+                <version>${akka.version}</version>
+            </dependency>
 
 
-        <dependency>
-            <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-remote_2.13</artifactId>
-            <version>${akka.untyped.version}</version>
-        </dependency>
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-remote_${scala.version}</artifactId>
+                <version>${akka.version}</version>
+            </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-multi-node-testkit -->
-        <dependency>
-            <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-multi-node-testkit_2.13</artifactId>
-            <version>${akka.untyped.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-
-        <dependency>
-            <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-camel_2.13</artifactId>
-            <version>${akka.untyped.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-contrib_2.13</artifactId>
-            <version>${akka.untyped.version}</version>
-        </dependency>
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-multi-node-testkit_${scala.version}</artifactId>
+                <version>${akka.version}</version>
+                <scope>test</scope>
+            </dependency>
 
 
-        <dependency>
-            <groupId>com.typesafe</groupId>
-            <artifactId>config</artifactId>
-            <version>1.4.2</version>
-        </dependency>
+            <!--  <dependency>
+                  <groupId>com.typesafe.akka</groupId>
+                  <artifactId>akka-contrib_${scala.caversion}</artifactId>
+                  <version>${akka.version}</version>
+              </dependency>-->
 
 
-        <!-- https://mvnrepository.com/artifact/junit/junit -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>test</scope>
-        </dependency>
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-cluster-sharding_${scala.version}</artifactId>
+                <version>${akka.version}</version>
+            </dependency>
 
 
-        <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-cluster -->
-        <dependency>
-            <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-cluster_2.13</artifactId>
-            <version>${akka.untyped.version}</version>
-        </dependency>
+            <dependency>
+                <groupId>com.typesafe</groupId>
+                <artifactId>config</artifactId>
+                <version>1.4.2</version>
+            </dependency>
 
 
-        <dependency>
-            <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-distributed-data_2.13</artifactId>
-            <version>${akka.untyped.version}</version>
-        </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.13.2</version>
+                <scope>test</scope>
+            </dependency>
 
 
-    </dependencies>
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-cluster_${scala.version}</artifactId>
+                <version>${akka.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-cluster-tools_${scala.version}</artifactId>
+                <version>${akka.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-cluster-sharding_${scala.version}</artifactId>
+                <version>${akka.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-cluster-metrics_${scala.version}</artifactId>
+                <version>${akka.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-distributed-data_${scala.version}</artifactId>
+                <version>${akka.version}</version>
+            </dependency>
+
+
+        </dependencies>
+
+    </dependencyManagement>
+
 
     <build>
         <finalName>akka-practice</finalName>

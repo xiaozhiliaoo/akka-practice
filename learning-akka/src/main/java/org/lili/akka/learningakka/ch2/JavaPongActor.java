@@ -10,7 +10,7 @@ public class JavaPongActor extends AbstractActor {
     @Override
     public Receive createReceive() {
 
-        //sender() 给发送者返回消息
+        //sender() 获取发送者的ActorRef. 给发送者返回消息
         return receiveBuilder().
                 matchEquals("Ping", s ->
                         sender().tell("Pong", ActorRef.noSender())).
