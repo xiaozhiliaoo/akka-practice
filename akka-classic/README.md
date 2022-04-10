@@ -1,6 +1,9 @@
 # Step1
 
+```
+cd akka-classic
 mvn package
+```
 
 # Step2
 
@@ -26,5 +29,5 @@ java -cp target\akka-classic-1.0-SNAPSHOT-allinone.jar jdocs.cluster.StatsSample
 java -cp target\akka-classic-1.0-SNAPSHOT-allinone.jar akka.cluster.pubsub.DistributedPubSubMediatorMain 2551 sub
 java -cp target\akka-classic-1.0-SNAPSHOT-allinone.jar akka.cluster.pubsub.DistributedPubSubMediatorMain 2552 sub
 java -cp target\akka-classic-1.0-SNAPSHOT-allinone.jar akka.cluster.pubsub.DistributedPubSubMediatorMain 2553 sub
-java -cp target\akka-classic-1.0-SNAPSHOT-allinone.jar akka.cluster.pubsub.DistributedPubSubMediatorMain 2554 pub
+java -cp target\akka-classic-1.0-SNAPSHOT-allinone.jar akka.cluster.pubsub.DistributedPubSubMediatorMain 2554 pub "I am Happy"
 ```

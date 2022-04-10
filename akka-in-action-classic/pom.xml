@@ -9,12 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>akka-in-action-java</artifactId>
+    <artifactId>akka-in-action-classic</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
+
 
     <dependencies>
         <dependency>
@@ -22,26 +23,19 @@
             <artifactId>akka-actor_${scala.binary.version}</artifactId>
             <version>${akka.version}</version>
         </dependency>
-
-
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-testkit_${scala.binary.version}</artifactId>
+            <version>${akka.version}</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>com.typesafe.akka</groupId>
             <artifactId>akka-cluster_${scala.binary.version}</artifactId>
             <version>${akka.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-cluster-sharding_${scala.binary.version}</artifactId>
-            <version>${akka.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-http_${scala.binary.version}</artifactId>
-            <version>10.2.4</version>
-        </dependency>
-
+        <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-cluster-metrics -->
         <dependency>
             <groupId>com.typesafe.akka</groupId>
             <artifactId>akka-cluster-metrics_${scala.binary.version}</artifactId>
@@ -50,39 +44,25 @@
 
 
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
-            <scope>provided</scope>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-cluster-tools_${scala.binary.version}</artifactId>
+            <version>${akka.version}</version>
+
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-cluster-sharding_${scala.binary.version}</artifactId>
+            <version>${akka.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>5.3.17</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
         </dependency>
-
-
     </dependencies>
 
-
-    <build>
-        <finalName>akka-practice</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-            </plugin>
-
-
-        </plugins>
-
-    </build>
 
 </project>

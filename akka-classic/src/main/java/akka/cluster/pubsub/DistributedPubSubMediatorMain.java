@@ -28,7 +28,7 @@ public class DistributedPubSubMediatorMain {
         Objects.requireNonNull(port, "port must has 2551 2552 (seedNodes)");
         Objects.requireNonNull(role, "role must be pub or sub");
         Map<String, Object> overrides = new HashMap<>();
-        overrides.put("akka.remote.artery.canonical.port", "port");
+        overrides.put("akka.remote.artery.canonical.port", port);
         overrides.put("akka.cluster.roles", Collections.singletonList(role));
 
         Config config = ConfigFactory.parseMap(overrides)
@@ -38,19 +38,17 @@ public class DistributedPubSubMediatorMain {
 
         Cluster cluster = Cluster.get(system);
         if (cluster.selfMember().hasRole("pub")) {
+            String publishMsg = args[2];
             // #publish-message
             // somewhere else
             ActorRef publisher = system.actorOf(Props.create(Publisher.class), "publisher");
             // after a while the subscriptions are replicated
-            publisher.tell("hello", null);
+            publisher.tell(publishMsg, null);
             // #publish-message
         }
         if (cluster.selfMember().hasRole("sub")) {
             // #start-subscribers
-            system.actorOf(Props.create(Subscriber.class), "subscriber1:" + port);
-            // another node
-            system.actorOf(Props.create(Subscriber.class), "subscriber2:" + port);
-            system.actorOf(Props.create(Subscriber.class), "subscriber3:" + port);
+            system.actorOf(Props.create(Subscriber.class), "subscriber:" + port);
             // #start-subscribers
         }
 

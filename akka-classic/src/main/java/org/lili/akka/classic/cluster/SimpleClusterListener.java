@@ -72,9 +72,12 @@ public class SimpleClusterListener extends AbstractActor {
 
     public static void main(String[] args) {
         String port = args[0];
+        //1. get config
         Config config = ConfigFactory.parseString("akka.remote.artery.canonical.port=" + port).
                 withFallback(ConfigFactory.load("SimpleClusterListener.conf"));
+        //2. create akka system by config
         ActorSystem system = ActorSystem.create("ClusterSystem", config);
+        //3. create akka actor
         system.actorOf(Props.create(SimpleClusterListener.class), "SimpleClusterListener:" + port);
         System.out.println("Starting SimpleClusterListener Server ...");
 
