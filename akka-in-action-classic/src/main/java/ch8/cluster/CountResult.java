@@ -1,4 +1,4 @@
-package ch8;
+package ch8.cluster;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

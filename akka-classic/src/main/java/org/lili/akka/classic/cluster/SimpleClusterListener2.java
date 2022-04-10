@@ -22,7 +22,7 @@ import com.typesafe.config.ConfigFactory;
 
 import java.util.Set;
 
-public class SimpleClusterListener extends AbstractActor {
+public class SimpleClusterListener2 extends AbstractActor {
 
     LoggingAdapter log = Logging.getLogger(getContext().getSystem(), this);
     Cluster cluster = Cluster.get(getContext().getSystem());
@@ -71,15 +71,14 @@ public class SimpleClusterListener extends AbstractActor {
     }
 
     public static void main(String[] args) {
-        String port = "2551";
-
+        String port = "2552";
         //1. get config
         Config config = ConfigFactory.parseString("akka.remote.artery.canonical.port=" + port).
                 withFallback(ConfigFactory.load("SimpleClusterListener.conf"));
         //2. create akka system by config
         ActorSystem system = ActorSystem.create("ClusterSystem", config);
         //3. create akka actor
-        system.actorOf(Props.create(SimpleClusterListener.class), "SimpleClusterListener:" + port);
+        system.actorOf(Props.create(SimpleClusterListener2.class), "SimpleClusterListener:" + port);
         System.out.println("Starting SimpleClusterListener Server ...");
 
         ClusterEvent.CurrentClusterState state = Cluster.get(system).state();

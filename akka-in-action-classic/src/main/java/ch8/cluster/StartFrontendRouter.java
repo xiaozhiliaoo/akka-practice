@@ -1,4 +1,4 @@
-package ch8;
+package ch8.cluster;
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
@@ -14,10 +14,11 @@ import scala.concurrent.duration.Duration;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 
-public class StartFrontend {
+public class StartFrontendRouter {
 
     @SneakyThrows
     public static void main(String[] args) {
@@ -26,28 +27,13 @@ public class StartFrontend {
                 .withFallback(ConfigFactory.parseString("akka.cluster.roles=[wordFrontend]"))
                 .withFallback(ConfigFactory.load("wordcount.conf"));
         ActorSystem system = ActorSystem.create("sys", config);
-        ActorRef ref = system.actorOf(Props.create(WordFrontService.class), "wordFrontService");
-
-        String result = "";
-        while (true) {
-            Thread.sleep(1000);
-            System.out.println("==================prepare ready==================");
-            Future<Object> fu = Patterns.ask(ref, "isReady", 1000);
-            try {
-                result = (String) Await.result(fu, Duration.create(1000, "seconds"));
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-            if (result.equals("ready")) {
-                System.out.println("==================ready done==================");
-                break;
-            }
-        }
+        ActorRef ref = system.actorOf(Props.create(WordFrontRouterService.class), "wordFrontService");
 
         List<Article> arts = new ArrayList<>();
-        arts.add(new Article("1","Article1 Article1"));
-        arts.add(new Article("2","Article12 Article2"));
-        arts.add(new Article("3","Article13 Article3"));
+        for (int i = 0; i < 100000; i++) {
+            arts.add(new Article(String.valueOf(new Random().nextInt(100)), "Article1 Article1"));
+        }
+
 
         Object res = null;
         Timeout timeout = new Timeout(Duration.create(3, TimeUnit.SECONDS));

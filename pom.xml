@@ -55,6 +55,14 @@
                 <version>${akka.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-testkit_${scala.binary.version}</artifactId>
+                <version>${akka.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+
 
             <dependency>
                 <groupId>com.typesafe.akka</groupId>
@@ -136,6 +144,15 @@
                 <artifactId>akka-distributed-data_${scala.binary.version}</artifactId>
                 <version>${akka.version}</version>
             </dependency>
+
+
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-multi-node-testkit_${scala.binary.version}</artifactId>
+                <version>${akka.version}</version>
+                <scope>test</scope>
+            </dependency>
+
 
 
         </dependencies>

@@ -5,7 +5,7 @@ import akka.actor.PoisonPill;
 import akka.actor.Props;
 import akka.cluster.singleton.ClusterSingletonManager;
 import akka.cluster.singleton.ClusterSingletonManagerSettings;
-import ch8.WordCountService;
+import ch8.cluster.WordCountService;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 
