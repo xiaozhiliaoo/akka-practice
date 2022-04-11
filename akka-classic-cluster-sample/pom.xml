@@ -99,7 +99,6 @@
             <groupId>org.komamitsu</groupId>
             <artifactId>phi-accural-failure-detector</artifactId>
             <version>0.0.5</version>
-            <scope>runtime</scope>
         </dependency>
 
 
