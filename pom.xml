@@ -13,6 +13,7 @@
         <module>learning-akka</module>
         <module>akka-classic</module>
         <module>akka-in-action-classic</module>
+        <module>akka-classic-cluster-sample</module>
     </modules>
 
     <properties>

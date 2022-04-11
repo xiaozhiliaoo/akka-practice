@@ -1,4 +1,4 @@
-package ch8.singleton;
+package demo4;
 
 import akka.actor.AbstractActor;
 import akka.cluster.Cluster;

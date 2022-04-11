@@ -1,9 +1,11 @@
-package akka.cluster.pubsub;
+package demo5;
 
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
+import akka.cluster.pubsub.DistributedPubSub;
+import akka.cluster.pubsub.DistributedPubSubMediator;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 

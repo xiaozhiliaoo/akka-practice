@@ -1,4 +1,4 @@
-package ch8.singleton;
+package demo4;
 
 import akka.actor.ActorSystem;
 import akka.actor.PoisonPill;
@@ -9,9 +9,9 @@ import ch8.cluster.WordCountService;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 
-public class StartBackend {
+public class StartBackend2 {
     public static void main(String[] args) {
-        String port = "2551";
+        String port = "2552";
         Config config = ConfigFactory.parseString("akka.remote.artery.canonical.port=" + port)
                 .withFallback(ConfigFactory.parseString("akka.cluster.roles=[wordBackend]"))
                 .withFallback(ConfigFactory.load("wordcount.conf"));

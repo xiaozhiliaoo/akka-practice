@@ -1,9 +1,11 @@
-package akka.cluster.pubsub;
+package demo5;
 
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
+import akka.cluster.pubsub.DistributedPubSub;
+import akka.cluster.pubsub.DistributedPubSubMediator;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
 import com.typesafe.config.Config;
@@ -17,10 +19,10 @@ import java.util.Map;
  * @author lili
  * @date 2022/4/10 21:15
  */
-public class Subscriber extends AbstractActor {
+public class Subscriber2 extends AbstractActor {
     LoggingAdapter log = Logging.getLogger(getContext().system(), this);
 
-    public Subscriber() {
+    public Subscriber2() {
         ActorRef mediator = DistributedPubSub.get(getContext().system()).mediator();
         // subscribe to the topic named "content"
         mediator.tell(new DistributedPubSubMediator.Subscribe("content", getSelf()), getSelf());
@@ -36,7 +38,7 @@ public class Subscriber extends AbstractActor {
 
     public static void main(String[] args) {
 
-        String port = "2551";
+        String port = "2552";
         Map<String, Object> overrides = new HashMap<>();
         overrides.put("akka.remote.artery.canonical.port", port);
         overrides.put("akka.cluster.roles", Collections.singletonList("sub"));
@@ -48,7 +50,7 @@ public class Subscriber extends AbstractActor {
 
 
         // #start-subscribers
-        system.actorOf(Props.create(Subscriber.class), "subscriber:" + port);
+        system.actorOf(Props.create(Subscriber2.class), "subscriber:" + port);
         // #start-subscribers
 
     }
