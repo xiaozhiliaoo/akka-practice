@@ -1,8 +1,8 @@
 # akka classic cluster sample
 
-akka集群技术分享的代码.
+2022-4-13日，akka集群技术分享的示例。
 
-[Slides]()
+[Slides Download](https://github.com/xiaozhiliaoo/my-slides/akka-classic-cluster.pptx)
 
 ## Demo1 动态变化的集群动画
 
