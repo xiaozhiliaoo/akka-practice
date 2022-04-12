@@ -32,6 +32,7 @@ public class Devices extends AbstractActor {
     public Devices() {
         ActorSystem system = getContext().getSystem();
         ClusterShardingSettings settings = ClusterShardingSettings.create(system);
+        //注册支持的Entity类型
         deviceRegion = ClusterSharding.get(system)
                 .start(
                         "Counter",
@@ -59,6 +60,7 @@ public class Devices extends AbstractActor {
                     Double temperature = 5 + 30 * random.nextDouble();
                     Device.RecordTemperature msg = new Device.RecordTemperature(deviceId, temperature);
                     log.info("Sending {}", msg);
+                    //实体发送的消息始终通过本地ShardRegion发送
                     deviceRegion.tell(msg, getSelf());
                 })
                 .build();
