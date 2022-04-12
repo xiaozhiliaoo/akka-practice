@@ -39,7 +39,12 @@ sh cluster-stop
 
 ## Demo6 Classic Cluster Sharding
 
-在demo6包下，一个图书购买的例子。
+在demo6/device包下，一个温度记录仪的例子. 依次启动ShardingApp，ShardingApp2，ShardingApp3，观察Device的输出.
+
+
+![](src/main/java/demo6/device/DeviceClusterShard.png)
+
+
 
 ## Demo7 Gossip Animation Simulator
 

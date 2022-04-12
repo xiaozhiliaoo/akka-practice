@@ -8,6 +8,7 @@ import akka.cluster.pubsub.DistributedPubSub;
 import akka.cluster.pubsub.DistributedPubSubMediator;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
+import lombok.SneakyThrows;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -35,12 +36,12 @@ public class Publisher extends AbstractActor {
                 .build();
     }
 
+    @SneakyThrows
     public static void main(String[] args) {
         String port = "2554";
 
         Map<String, Object> overrides = new HashMap<>();
         overrides.put("akka.remote.artery.canonical.port", port);
-        overrides.put("akka.cluster.roles", Collections.singletonList("pub"));
 
         Config config = ConfigFactory.parseMap(overrides)
                 .withFallback(ConfigFactory.load("PubSub.conf"));
@@ -50,8 +51,8 @@ public class Publisher extends AbstractActor {
 
         ActorRef publisher = system.actorOf(Props.create(Publisher.class), "publisher");
         // after a while the subscriptions are replicated
+        Thread.sleep(5000);
         publisher.tell("hello", null);
-
 
     }
 }

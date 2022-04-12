@@ -16,6 +16,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * akka持久化的例子
+ */
 @AllArgsConstructor
 @Data
 class Action implements Serializable {

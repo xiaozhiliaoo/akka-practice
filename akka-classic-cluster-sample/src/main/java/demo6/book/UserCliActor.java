@@ -5,7 +5,9 @@ import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
 import akka.cluster.sharding.ClusterSharding;
+import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
+import lombok.SneakyThrows;
 
 public class UserCliActor extends AbstractActor {
 
@@ -37,9 +39,15 @@ public class UserCliActor extends AbstractActor {
                 .build();
     }
 
+    @SneakyThrows
     public static void main(String[] args) {
-        ActorSystem system = ActorSystem.create("sys", ConfigFactory.load("cartcli.conf"));
+        String port = "2553";
+        Config config = ConfigFactory.parseString("akka.remote.artery.canonical.port=" + port).
+                withFallback(ConfigFactory.load("cart.conf"));
+        ActorSystem system = ActorSystem.create("sys", config);
+        Thread.sleep(10000);
         ActorRef ref = system.actorOf(Props.create(UserCliActor.class), "cli");
+        Thread.sleep(10000);
         ref.tell("buy", ActorRef.noSender());
         ref.tell("query", ActorRef.noSender());
     }
