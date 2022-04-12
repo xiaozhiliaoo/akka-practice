@@ -2,7 +2,7 @@
 
 2022-4-13日，akka集群技术分享的示例。
 
-[Slides Download](https://github.com/xiaozhiliaoo/my-slides/akka-classic-cluster.pptx)
+[Slides Download](https://github.com/xiaozhiliaoo/my-slides/blob/master/akka-classic-cluster.pptx)
 
 ## Demo1 动态变化的集群动画
 
