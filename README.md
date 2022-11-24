@@ -10,6 +10,10 @@ akka学习与实践
 
 [百科](./wikipedia)
 
+## Slides
+
+[Slides](./slides)
+
 ## Other
 
 [lvq410-AkkaExample](https://github.com/lvq410/AkkaExample)
